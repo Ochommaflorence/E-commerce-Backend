@@ -9,12 +9,12 @@ class UserServices {
     try {
       let user = await Users.findOne({ email });
       if (!user) {
-        return handleResponse(res, 401, "Invalid Password or username");
+        return handleResponse(res, 401, "Invalid credentials");
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
-        return handleResponse(res, 401, "Invalid Password or username");
+        return handleResponse(res, 401, "Invalid credentials");
       }
 
       const token = generateToken({
@@ -53,7 +53,7 @@ class UserServices {
         location
       });
 
-      console.log(user);
+    
 
       const salt = await bcrypt.genSalt(10);
 
