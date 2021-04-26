@@ -20,6 +20,12 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  
+  location: {
+    type: String,
+    required: true,
+  }
+  
 });
 
 const UserModel = model("Users", userSchema);

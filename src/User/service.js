@@ -42,6 +42,7 @@ class UserServices {
         email,
         phone_number,
         password,
+        location,
       } = req.body;
 
       const user = new Users({
@@ -49,7 +50,7 @@ class UserServices {
         email,
         phone_number,
         password,
-    
+        location
       });
 
       console.log(user);
